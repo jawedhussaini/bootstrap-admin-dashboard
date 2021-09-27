@@ -1,0 +1,366 @@
+body{
+    background-color: rgb(244, 244, 244);
+}
+:root{
+--offcanvas-width:300px;
+--topNavBarHieght:80px;
+}
+.sidebar-nav{
+  width: var(--offcanvas-width);
+}
+
+.sidebar-link{
+    display: flex;
+    align-items: center;
+}
+.right-icon{
+    display: inline-flex;
+}
+.sidebar-link[aria-expanded="true"] .right-icon{
+transform: rotate(180deg);
+}
+.hover-color:hover{
+    background-color:rgb(226, 226, 226);
+
+}
+.admin-drops{
+    width: 300px;
+    background-color:rgb(255, 255, 255);
+
+}
+.dropdows-backgrond{
+    background-image: url("../images/images\ \(1\).jfif");
+    background-size:cover;
+    margin-top: -8px;
+}
+.nav-button{
+    width: 50px;
+    height: 50px;
+    background-color: rgb(252, 252, 252);
+}
+.main-dashbourd:hover{
+background-color: rgb(239, 244, 253);;
+}
+.main-dashbourd-header{
+    text-align: center;
+    padding: 30px;
+    color: white;
+    
+    margin-top:-7px;
+    margin-bottom: 5px;
+}
+.setting-icon{
+
+    right: 40%;
+    width: 25px;
+    height: 20px;
+}
+.bell-icon{
+   font-size: 25px;
+   color: rgb(253, 75, 75);
+   background-color: rgb(250, 200, 200);
+   padding-left: 13px;
+   padding-right: 13px;
+   padding-top: 8px;
+   padding-bottom: 8px;
+}
+.setting-button{
+    border:solid black 1px;
+
+    
+}
+.main-dashbourd-div-header{
+    background-image: url("../images/nature-3082832_1280.jpg");
+    background-size: cover;
+}
+.mega-menu{
+    border-left: solid rgb(223, 223, 223) 1px;
+    font-size: 18px;
+}
+.mega-menu:hover{
+background-color: white;
+}
+.mega-menu-links{
+    width: 300px;
+}
+.journals{
+    float: right;
+    background-color: rgb(255, 72, 72);
+   padding: 10px;
+   border-radius: 50%;
+   padding-top:1px ;
+   padding-bottom: 1px;
+   color: white;
+}
+#goels{
+    background-color: rgb(3, 134, 241);
+}
+#ganger{
+    padding: 5px;
+    background-color: rgb(219, 223, 1);
+    border-radius: 30%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.nav-pecture{
+    font-size: 20px;
+    color:darkorchid;
+
+}
+.nav-pecture-button{
+    background-color: rgb(236, 204, 253);
+}
+#nav-pucture-header{
+    width: 500px;
+    height: auto;
+    text-align:center;
+    background-image: url(../images/gwendal-cottin-j85t8FTaCcE-unsplash.jpg);
+    background-size:contain;
+    color: white;
+}
+#profile-background{
+    background-image: url(../images/90457.jpg);
+    height: 260px;
+    width: 500px;
+    background-size: cover;
+    margin-bottom: -8px;
+    text-align: center;
+
+}
+.person-icon{
+    font-size: 40px;
+    padding: 8px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 8px;
+    position: relative;
+
+    
+}
+#logo{
+    margin-right: 50px;
+    padding-right: 120px;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(255, 255, 255); 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(228, 227, 227); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(228, 227, 227); 
+  }
+
+
+
+
+  body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidebar {
+    padding: 0;
+    width: 304px;
+    background-color: #ffffff;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .sidebar a {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  
+  
+  .sidebar a:hover:not(.active) {
+    background-color: rgb(240, 239, 239);
+    color: white;
+  }
+  
+  div.content {
+      margin-top: 80px;
+   background-color:    rgb(244, 244, 244);
+    margin-left: 300px;
+    padding: 1px 16px;
+
+  }
+  .first-row{
+      background-color: rgb(236, 236, 236);
+  }
+  .blogs-one{
+    border-bottom: 5px solid rgb(255, 217, 0);
+  }
+  .blog-div{
+    margin-top: -30px;
+  }
+  .blogs-two{
+    border-bottom: 5px solid rgb(255, 0, 0);
+  }
+  .blogs-three{
+    border-bottom: 5px solid rgb(0, 89, 255);
+  }
+  .tables-photo{
+    border-radius: 50%;
+     width:50px;
+  }
+  .chat-box{
+    max-height:70ch;
+    overflow: scroll;
+  }
+  .message-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .details p{
+    padding: 8px 16px; 
+  }
+  .chat-incoming .details{
+    margin-left: auto;
+    width: calc(100% - 130px);
+  }
+  .chat-incoming .incoming{
+    display: flex;
+    border-radius: 18px 18px 0 18px;
+  }
+  .going{
+    display: flex;
+    border-radius: 18px 18px 18px 0px;
+    background-color: rgb(233, 231, 231);
+  margin-right:auto ;
+  width: calc(100% - 100px);
+  }
+  #goning-message-image{
+    margin-top: 15px;
+    margin-right: 4px;
+  }
+  .send-message{
+    background-color: rgb(224, 223, 223);
+  }
+  .pre-footer{
+    background-color: white;
+  }
+  #view-all-btn{
+    float: right;
+    
+  }
+  .portabel-div-icons{
+    font-size: 35px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .span-portables{
+    margin-top: 20px;
+    
+  }
+  .h1-headers{
+    font-size: 60px;
+  }
+  .footer{
+    background-color: rgb(240, 240, 240);
+  }
+  .footer-image{
+    width: 60px;
+    height: 60px;
+  }
+  .table-div{
+    max-height:94ch;
+    overflow: scroll;
+  }
+  
+  @media screen and (max-width: 1600px){
+
+  }
+  @media screen and (max-width: 1400px){
+    #mega-menu{
+      display: none;
+    }
+  }
+  @media screen and (max-width: 1200px){
+    .informations{
+      display: none;
+    }
+    .chat-incoming .details{
+      
+    width:100%
+    }
+    .going{
+      display: flex;
+      border-radius: 18px 18px 18px 0px;
+      background-color: rgb(233, 231, 231);
+  
+    width:100%
+    }
+    .email{
+      display: none;
+    }
+  }
+  @media screen and (max-width: 1050px){
+    .hide-in-small-screen{
+      display: none;
+    }
+  }
+  @media screen and (max-width: 935px){
+    div.content {margin-left: 0;}
+  }
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+
+@media (max-width: 950px){
+    body{
+        overflow: auto !important;
+    }
+ 
+
+}
+@media (min-width: 950px){
+  body{
+    overflow: auto !important;
+}
+  .sidebar-nav{
+    transform: none;
+    visibility: visible !important;
+    top: var(--topNavBarHieght);
+    height:calc(100% var(--topNavBarHieght)); 
+} 
+
+.offcanvas-backdrop::before{
+  display: none;
+}
+}

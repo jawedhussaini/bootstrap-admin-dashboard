@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./bar-chart-race/index.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <title>amCharts V4 Example - adding-live-data</title>
+    <link rel="stylesheet" href="./column-chart-with-axis-break/index.css" />
+  </head>
+<body>
+   
+  <!--navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark text-dark shadow p-3 mb-5 bg-white rounded fixed-top">
+
+    <div class="container-fluid">
+      <!--navbar tragal-->
+      <button class="navbar-toggler text-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample">
+        <i class="bi bi-menu-button-wide"></i>
+      </button>
+      <!--navbar tragal-->
+
+      <a class="navbar-brand me-auto" id="logo" href="#"><img src="./images/LogoMakr-4wzVhl.png" width="150px"
+          alt=""></a>
+
+      <button class="navbar-toggler" id="show-detail-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <button class="btn btn-white p-0 rounded-circle hide-in-small-screen"><i
+            class="bi bi-bell-fill bell-icon rounded-circle mx-2"></i></button>
+        <div class="dropdown" id="mega-menu">
+          <button class="btn rounded-circle p-2 nav-button border-0" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-list text-danger"></i>
+          </button>
+          <ul class="dropdown-menu shadow border-0" aria-labelledby="dropdownMenuButton1">
+            <div class="d-flex p-2">
+              <div class="row dropdown-item mega-menu border-0">
+                <li><label class="fw-bold text-muted" for="">Overview</label></li>
+                <li><a href="#" class="nav-link mega-menu-links"><i class="bi bi-images mx-2 "></i><span
+                      class="text-dark">Companieys</span></a></li>
+                <li><a href="#" class="nav-link mega-menu-links"><i class="bi bi-journals mx-2"></i> <span
+                      class="text-dark">Journals</span><span class="journals">5</span></a></li>
+                <li><a href="#" class="nav-link mega-menu-links"><i class="bi bi-card-list mx-2"></i><span
+                      class="text-dark">Contacts</span></a></li>
+                <li><a href="#" class="nav-link mega-menu-links"><i class="bi bi-award mx-2"></i><span
+                      class="text-dark">Gallarys</span></a></li>
+                <li class="text-danger"><i class="bi bi-wallet py-3"></i><span class="mx-2">Dashboard</span></li>
+
+              </div>
+              <div class="dropdown-item mega-menu">
+                <li><label class="fw-bold text-muted" for="">Fevorits</label></li>
+                <li><a class="nav-link mega-menu-links" href="">Go Away</a></li>
+                <li><a class="nav-link mega-menu-links" href="">Drop Links</a></li>
+                <li><a class="nav-link mega-menu-links" href="">Ganger<span class="journals" id="ganger">new</span></a>
+                </li>
+                <li><a class="nav-link mega-menu-links" href="">Drop Off</a></li>
+              </div>
+              <div class="dropdown-item mega-menu">
+                <li><label class="fw-bold text-muted" for="">Market and Sales</label></li>
+                <li><a class="nav-link mega-menu-links" href="">Marketting</a></li>
+                <li><a class="nav-link mega-menu-links" href="">Goels <span class="journals" id="goels">8</span></a>
+                </li>
+                <li><a class="nav-link mega-menu-links" href="">Sales</a></li>
+                <li><a class="nav-link mega-menu-links" href="">Manegment</a></li>
+              </div>
+
+            </div>
+          </ul>
+        </div>
+        <div class="dropdown mx-3 border-1 hide-in-small-screen">
+          <button class="ms-auto rounded-circle p-2 nav-pecture-button nav-button border-0" type="button"
+            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-images nav-pecture"></i>
+          </button>
+          <ul class="dropdown-menu shadow border-0" aria-labelledby="dropdownMenuButton1">
+            <div>
+              <div id="nav-pucture-header">
+                <div class="py-4">
+                  <h4>main profile</h4>
+                  <h6>this is some information</h6>
+                </div>
+              </div>
+              <div id="profile-background">
+                <div class="py-5"><i class="bi bi-person person-icon"></i>
+                  <h2 class="py-2 text-danger">441k</h2>
+                  <a href="" class="text-decoration-none">
+                    <h6 class="text-primary">Read more <i class="bi bi-arrow-right"></i>
+                  </a> </h6>
+                  <button class="btn btn-danger ms-auto my-3">button</button>
+                </div>
+              </div>
+
+            </div>
+
+
+          </ul>
+        </div>
+        <form class="d-flex ms-auto my-3 my-lg-0">
+
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
+              aria-describedby="button-addon2">
+            <button class="btn btn-primary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+          </div>
+        </form>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+
+
+          <li class="nav-item dropdown mx-3 p-1 rounded-circle nav-button hide-in-small-screen">
+            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bi bi-person-fill ms-auto hide-in-small-screen" style="color: rgba(2, 255, 57, 0.836);"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end admin-drops shadow border-0" aria-labelledby="navbarDropdown">
+
+              <div style="width:100%;" class="d-flex flex-row px-4 py-5 dropdows-backgrond">
+                <h3 class="text-white">profile text </h3><button class="mx-2 btn btn-danger">Log out</button>
+              </div>
+              <h5 class="mx-3 text-dark">Acount</h5>
+              <li class="mx-4 text-dark">Name</li>
+              <li class="mx-4 text-dark">Last name</li>
+              <li class="mx-4 text-dark">user name</li>
+              <h5 class="mx-3 text-dark">Activety</h5>
+              <li><a class="dropdown-item text-primary hover-color px-4" href="#">chat</a></li>
+              <li><a class="dropdown-item text-primary hover-color px-4" href="#">recovery password</a></li>
+              <li>
+                <hr class="dropdown-divider text-dark">
+              </li>
+              <button class="btn btn-warning mx-3">Cancle</button>
+
+
+            </ul>
+          </li>
+          <li class="hide-in-small-screen">
+            <div class="dropdown mx border-1">
+              <button class="ms-auto rounded-circle p-2 nav-button border-0 hide-in-small-screen" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-list text-primary"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end shadow border-0 w-auto" aria-labelledby="dropdownMenuButton1">
+                <div class="main-dashbourd-div-header">
+                  <h5 class="main-dashbourd-header">Main Dashboard</h5>
+                </div>
+                <div class="d-flex">
+                  <li><a class="dropdown-item p-3 px-4 rounded-circle main-dashbourd" href="#"><i
+                        class="bi bi-chat-square"></i></a></li>
+                  <li><a class="dropdown-item p-3 px-4 rounded-circle main-dashbourd" href="#"><i
+                        class="bi bi-alarm"></i></a></li>
+                  <li><a class="dropdown-item p-3 px-4 rounded-circle main-dashbourd" href="#"><i
+                        class="bi bi-bag-check"></i></a></li>
+                </div>
+                <div class="d-flex">
+                  <li><a class="dropdown-item p-3 px-4 rounded-circle main-dashbourd" href="#"><i
+                        class="bi bi-bank"></i></a></li>
+                  <li><a class="dropdown-item p-3 px-4 rounded-circle main-dashbourd" href="#"><i
+                        class="bi bi-brightness-high"></i></i></a></li>
+                  <li><a class="dropdown-item p-3 px-4 rounded-circle main-dashbourd" href="#"><i
+                        class="bi bi-cloud-arrow-down"></i></a></li>
+                  <li>
+                    <hr class="text-dark">
+                  </li>
+
+                </div>
+
+                <button class="border-2 btn btn-white setting-button ms-auto m-1"><img src="./images/settings.gif"
+                    class="setting-icon" alt=""> Settings</button>
+
+              </ul>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <!--navbar end-->
+  <!--ofconvos-->
+
+  
+
+  
+  <div class="offcanvas offcanvas-start bg-white border-0 sidebar-nav" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    
+    
+    
+    
+    
+      <div class="offcanvas-body">
+        <nav class="navbar-dark"></nav>
+          <ul class="navbar-nav">
+            <li>
+              <div class="text-muted small fw-bold px-3">
+                <p class="text-info">CORE</p>
+              </div>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3 active">
+                <span class="me-2">
+                  <i class="bi bi-speedometer2 text-dark"></i>
+                </span>
+                <span class="text-dark">Dashboard</span>
+  
+              </a>
+            </li>
+            <li class="py-4">
+  
+            </li>
+            <li>
+              <div class="text-muted small fw-bold px-3">
+                <p class="text-info">INTERFACE</p>
+              </div>
+            </li>
+            <li>
+              <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                aria-expanded="false" aria-controls="collapseExample">
+  
+                <span class="me-2">
+                  <i class="bi bi-layout-split text-dark"></i>
+                </span>
+                <span class="text-dark">Layout</span>
+                <span class="right-icon ms-auto"><i class="bi bi-chevron-down text-dark"></i></span>
+  
+              </a>
+              <div class="collapse" id="collapseExample">
+                <div>
+                  <ul class="navbar-nav ps-3">
+                    <li>
+                      <a href="#" class="nav-link px-3">
+                        <span class="me-2">
+                          <i class="bi bi-link text-dark"></i>
+                        </span>
+                        <span class="text-dark">nastid links</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link px-3">
+                        <span class="me-2">
+                          <i class="bi bi-app text-dark"></i>
+                        </span>
+                        <span class="text-dark">app</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link px-3">
+                        <span class="me-2">
+                          <i class="bi bi-award text-dark"></i>
+                        </span>
+                        <span class="text-dark">awards</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link px-3">
+                        <span class="me-2">
+                          <i class="bi bi-bar-chart text-dark"></i>
+                        </span>
+                        <span class="text-dark">bar</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link px-3">
+                        <span class="me-2">
+                          <i class="bi bi-bookmark-star text-dark"></i>
+                        </span>
+                        <span class="text-dark">book mark</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link px-3">
+                        <span class="me-2">
+                          <i class="bi bi-briefcase text-dark"></i>
+                        </span>
+                        <span class="text-dark">case</span>
+                      </a>
+                    </li>
+  
+                  </ul>
+                </div>
+              </div>
+            </li>
+  
+  
+            <li>
+              <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#collapseExamples" role="button"
+                aria-expanded="false" aria-controls="collapseExamples">
+  
+                <span class="me-2">
+                  <i class="bi bi-tablet-landscape text-dark"></i>
+                </span>
+                <span class="text-dark">SCREEN</span>
+                <span class="right-icon ms-auto"><i class="bi bi-chevron-down text-dark"></i></span>
+  
+              </a>
+              <div class="collapse" id="collapseExamples">
+                <div>
+                  <ul class="navbar-nav ps-3">
+                    <li>
+                      <a href="#" class="nav-link px-3">
+                        <span class="me-2">
+                          <i class="bi bi-brightness-high text-dark"></i>
+                        </span>
+                        <span class="text-dark">brightnis</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link px-3">
+                        <span class="me-2">
+                          <i class="bi bi-fonts text-dark"></i>
+                        </span>
+                        <span class="text-dark">fonts</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link px-3">
+                        <span class="me-2">
+                          <i class="bi bi-palette text-dark"></i>
+                        </span>
+                        <span class="text-dark">colors</span>
+                      </a>
+                    </li>
+  
+  
+  
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="py-4">
+  
+            </li>
+            
+                <div class="text-muted small fw-bold px-3">
+                  <p class="text-info">DASHBOARD WIDGETS</p>
+                </div>
+              </li>
+              <li>
+                <a href="./chart-one.html" class="nav-link px-3 active">
+                  <span class="me-2">
+                    <i class="bi bi-pie-chart text-dark"></i>
+                  </span>
+                  <span class="text-dark">Box chart 1</span>
+    
+                </a>
+              </li>
+              <li>
+                <a href="./chart-two.html" class="nav-link px-3 active">
+                  <span class="me-2">
+                    <i class="bi bi-pie-chart-fill text-dark"></i>
+                  </span>
+                  <span class="text-dark">Box chart 2</span>
+    
+                </a>
+              </li>
+              <li>
+                <a href="./chart-three.html" class="nav-link px-3 active">
+                  <span class="me-2">
+                    <i class="bi bi-clipboard-data text-dark"></i>
+                  </span>
+                  <span class="text-dark">Box chart 3</span>
+    
+                </a>
+              </li>
+            </li>
+            <li class="py-4">
+  
+            </li>
+            
+                <div class="text-muted small fw-bold px-3">
+                  <p class="text-info">CHARTS</p>
+                </div>
+              </li>
+              <li>
+                <a href="#" class="nav-link px-3 active">
+                  <span class="me-2">
+                    <i class="bi bi-graph-down text-dark"></i>
+                  </span>
+                  <span class="text-dark">Graph down</span>
+    
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link px-3 active">
+                  <span class="me-2">
+                    <i class="bi bi-graph-up text-dark"></i>
+                  </span>
+                  <span class="text-dark">Graph up</span>
+    
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link px-3 active">
+                  <span class="me-2">
+                    <i class="bi bi-bar-chart-steps text-dark"></i>
+                  </span>
+                  <span class="text-dark">Grapg JS</span>
+    
+                </a>
+              </li>
+  
+  
+  
+          </ul>
+  
+        </nav>
+      </div>
+    
+  </div>
+  <!--ofconvos-->
+  
+  <div class="content">
+
+<div class="row first-row p-4 py-4">
+  <div class="col-lg-5 "><div class="d-flex py-1"><a href="#"><span class="text-dark shadow bg-white px-4 py-3 fs-3 mx-4 my-2 rounded-2"><i class="bi bi-cart4 text-danger"></i></span></a><div><h3 class="text-muted">Bootstrap admin panel</h3>
+  <p class="text-muted">this is the best admin panel form ecomers websides</p></div></div></div>
+  <div class="col-lg-1"></div>
+  <div class="col-lg-3"></div>
+  <div class="col-lg-3"><span class="text-white bg-dark px-2 py-2 fs-5 mx-4 rounded-1 shadow"><i class="bi bi-star-fill"></i></span><button class="btn btn-info px-5 py-2 my-2 shadow text-white">Button</button></div>
+</div>
+<div class="row my-5 mx-5">
+<div class="px-3 col-lg-4 col-12 my-5"><div class="bg-white shadow text-center rounded-2 blogs-one"> <div class="py-4 blog-div fs-5"><i class="bi bi-building p-4 bg-warning rounded-circle shadow text-white" ></div></i><p class="text-muted"><h4>Cashing</h4><h1>$6.5M</h1><a href="" class="nav-link"><span class="text-warning"><i class="bi bi-arrow-right-short"></i>read more</span></a></p></div></div>
+<div class="px-3 col-lg-4 col-12 my-5"><div class="bg-white shadow text-center rounded-2 blogs-two"><div class="py-4 blog-div fs-5"><i class="bi bi-laptop p-4 bg-danger rounded-circle shadow text-white" ></i></div><p class="text-muted"><h4>Active Users</h4><h1>$2.13M</h1><a href="" class="nav-link"><span class="text-danger"><i class="bi bi-arrow-right-short"></i>read more</span></a></p></div></div>
+<div class="px-3 col-lg-4 col-12 my-5"><div class="bg-white shadow text-center rounded-2 blogs-three" ><div class="py-4 blog-div fs-5"><i class="bi bi-megaphone p-4 bg-primary rounded-circle shadow text-white" ></i></div><p class="text-muted"><h4>Advertisment</h4><h1>$1.2K</h1><a href="" class="nav-link"><span class="text-primary"><i class="bi bi-arrow-right-short"></i>read more</span></a></p></div></div>
+</div>
+
+<div class="row text-center shadow my-5 bg-white">
+  <div class="col-lg-12"><h2 class="m-auto text-info">USERS ACTIVITY DIAGRAM</h2><div class="" id="chartdiv"></div></div>
+</div>
+<div class="p-5 informations">
+ <div class="row bg-white shadow">
+   <div class="col-lg-4 col-12"><h3 class="m-4 text-muted">portebal div</h3> </div>
+   <div class="col-lg-4 col-12"></div>
+   <div class="col-lg-4 col-12"><button class="btn border-2 text-white bg-dark m-4" id="view-all-btn">veiw all</button></div>
+   <hr class="text-muted">
+   <div class="row">
+   <div class="col-lg-4 col-12 d-flex"><span class="span-portables mx-3"><i class="bi bi-laptop bg-warning text-white rounded-circle portabel-div-icons"></i></span><div class="mx-3"><h6 class="text-muted">cashdeposit</h6><h1 class="h1-headers">1.5m</h1><h5><span class="text-danger">52.33% export</span> all cases in</h5></div></div>
+   <div class="col-lg-4 col-12 d-flex"><span class="span-portables mx-3"><i class="bi bi-bank bg-danger text-white rounded-circle portabel-div-icons"></i></span><div class="mx-3"><h6 class="text-muted">monny</h6><h1 class="h1-headers">1.3m</h1><h5><span class="text-danger">44.3% export</span> monny</h5></div></div>
+   <div class="col-lg-4 col-12 d-flex"> <span class="span-portables mx-3"><i class="bi bi-camera bg-success text-white rounded-circle portabel-div-icons"></i></span><div class="mx-3"><h6 class="text-muted">cashdeposit</h6><h1 class="h1-headers text-success">1.9m</h1><h5><span class="text-danger">33.22% export</span> photo</h5></div></div>
+  </div>
+   <hr class="text-muted">
+   <div class="col-lg-4 col-12"></div>
+   <div class="col-lg-4 col-12 mx-4"><button class="btn btn-primary text-white rounded-pill px-4 py-2 m-3 mx-5 "><i class="bi bi-disc"></i>button to click same </button></div>
+   <div class="col-lg-4 col-12"></div>
+ </div>
+</div>
+<div class="row">
+  <div class="col-lg-7 col-12 table-div">
+    <table class="table bg-white shadow rounded-3">
+      <thead class="text-center py-6 border-1">
+      <th class="border-0 text-info my-4"><h3>NEW USERS</h3></th> 
+      <th scope="col-2" class="border-0 my-4"> <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-warning">search</button>
+      </form></th>
+      </thead>
+      <thead class="py-5">
+        
+        <tr class="text-danger">
+          <th scope="col">picture</th>
+          <th scope="col">First</th>
+          <th scope="col" class="email" scope="col">Email</th>
+          <th scope="col">Delete row</th>
+          <th scope="col">Save to </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/woman-1439909_640.jpg" alt=""></th>
+          <td>Mark</td>
+          <td class="email">@mdo</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/one.jpg" alt=""></th>
+          <td>Jacob</td>
+          <td class="email">@fat</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/two.jpg" alt=""></th>
+          <td colspan="1">Anna</td>
+          <td class="email">@twitter</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/three.jpg" alt=""></th>
+          <td colspan="1">Jefry</td>
+          <td class="email">@twitter</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/xx.jpg" alt=""></th>
+          <td colspan="1">Alex</td>
+          <td class="email">@twitter</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/four.jpg" alt=""></th>
+          <td colspan="1">mark</td>
+          <td class="email">@twitter</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/ten.jpeg" alt=""></th>
+          <td colspan="1">Mark</td>
+          <td class="email">@twitter</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/zz.jpg" alt=""></th>
+          <td colspan="1">Mark</td>
+          <td class="email">@twitter</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/eight.jpg" alt=""></th>
+          <td colspan="1">Mark</td>
+          <td class="email">@twitter</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/aa.jpg" alt=""></th>
+          <td colspan="1">Mark</td>
+          <td class="email">@twitter</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/one.jpg" alt=""></th>
+          <td>Jacob</td>
+          <td class="email">@fat</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/two.jpg" alt=""></th>
+          <td colspan="1">Anna</td>
+          <td class="email">@twitter</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/three.jpg" alt=""></th>
+          <td colspan="1">Jefry</td>
+          <td class="email">@twitter</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+        <tr>
+          <th scope="row"><img class="tables-photo" src="./images/xx.jpg" alt=""></th>
+          <td colspan="1">Alex</td>
+          <td class="email">@twitter</td>
+          <td scope="col"><button class="btn btn-denger bg-danger text-white">Delete</button></td>
+          <td scope="col"><button class="btn btn-denger bg-success text-white">Save</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-lg-5">
+  <div class="bg-white py-3 shadow rounded-3">
+<div>
+  <header>
+    <div class="d-flex my-3">
+    <a href="#" class="border-0 mx-3 my-3" ><i class="bi bi-arrow-left"></i></a>
+    <img src="./images/dd.jpg" class="message-image shadow" alt="">
+    <div class="mx-2">
+      <h6>jony</h6>
+      <p>active naw</p>
+    </div>
+  </div>
+</header>
+  <hr class="text-muted">
+  <div class="chat-box">
+  <div class="chat-incoming m-3"> 
+  <div class="text-white bg-dark shadow details incoming"><p> all participants will move as avatars to the live lectures and in the virtual exhibition center.</p></div>
+</div>
+<div class="chat-going m-3 d-flex">
+  <img src="./images/dd.jpg" class="message-image shadow" id="goning-message-image" alt="">
+  <div class="text-white details going text-dark"><p class="text-dark">ll participants will move as avatars to the live lectures and in the virtual exhibition center.</p></div>
+</div>
+<div class="chat-going m-3 d-flex">
+  <img src="./images/dd.jpg" class="message-image shadow" id="goning-message-image" alt="">
+  <div class="text-white details going text-dark"><p class="text-dark"> and in the virtual exhibition center.</p></div>
+</div>
+ 
+<div class="chat-incoming m-3"> 
+  <div class="text-white bg-dark shadow details incoming"><p> all participants will move as avatars to the live lectures and in the virtual exhibition center.</p></div>
+</div>
+
+<div class="chat-going m-3 d-flex">
+  <img src="./images/dd.jpg" class="message-image shadow" id="goning-message-image" alt="">
+  <div class="text-white details going text-dark"><p class="text-dark">ll participants will move as avatars to the live lectures and in the virtual exhibition center.</p></div>
+</div>
+
+<div class="chat-incoming m-3"> 
+  <div class="text-white bg-dark shadow details incoming"><p> all participants will move as avatars to the live lectures and in the virtual exhibition center.</p></div>
+</div>
+<div class="chat-going m-3 d-flex">
+  <img src="./images/dd.jpg" class="message-image shadow" id="goning-message-image" alt="">
+  <div class="text-white details going text-dark"><p class="text-dark">ll participants will move as avatars to the live lectures and in the virtual exhibition center.</p></div>
+</div>
+
+
+<div class="chat-incoming m-3"> 
+  <div class="text-white bg-dark shadow details incoming"><p> all participants will move as avatars to the live lectures and in the virtual exhibition center.</p></div>
+</div>
+<div class="chat-going m-3 d-flex">
+  <img src="./images/dd.jpg" class="message-image shadow" id="goning-message-image" alt="">
+  <div class="text-white details going text-dark"><p class="text-dark">ll participants will move as avatars to the live lectures and in the virtual exhibition center.</p></div>
+</div>
+
+
+<div class="chat-incoming m-3"> 
+  <div class="text-white bg-dark shadow details incoming"><p> all participants will move as avatars to the live lectures and in the virtual exhibition center.</p></div>
+</div>
+<div class="chat-going m-3 d-flex">
+  <img src="./images/dd.jpg" class="message-image shadow" id="goning-message-image" alt="">
+  <div class="text-white details going text-dark"><p class="text-dark">ll participants will move as avatars to the live lectures and in the virtual exhibition center.</p></div>
+</div>
+
+<div class="chat-incoming m-3"> 
+  <div class="text-white bg-dark shadow details incoming"><p> all participants will move as avatars to the live lectures and in the virtual exhibition center.</p></div>
+</div>
+<div class="chat-going m-3 d-flex">
+  <img src="./images/dd.jpg" class="message-image shadow" id="goning-message-image" alt="">
+  <div class="text-white details going text-dark"><p class="text-dark">ll participants will move as avatars to the live lectures and in the virtual exhibition center.</p></div>
+</div>
+</div>
+<div class="w-100 my-2 px-3">
+  <form class="d-flex">
+    <input class="form-control me-2 send-message" type="search" placeholder="Send MAssage..." aria-label="Search">
+    <button type="submit" class="btn btn-primary">send</button>
+  </form>
+  
+</div>
+</div>
+  </div>
+</div>
+</div>
+<div class="row m-3 my-5 p-5 pre-footer shadow">
+  <div class="col-lg-4 col-12">
+    <div class="row">
+      <div class="col-lg-8"><h3>followers</h3>
+      <h5 class="text-muted">total folorwers in mounth</h5>
+      </div>
+      <div class="col-lg-4 my-3"><h3 class="text-danger">100K</h3></div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-12">
+    <div class="row">
+      <div class="col-lg-8"><h3>Order</h3>
+      <h5 class="text-muted">total order in mounth</h5>
+      </div>
+      <div class="col-lg-4 my-3"><h3 class="text-primary">10824</h3></div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-12">
+    <div class="row">
+      <div class="col-lg-8"><h3>clients</h3>
+      <h5 class="text-muted">total clients off</h5>
+      </div>
+      <div class="col-lg-4 my-3"><h3 class="text-warning">10000</h3></div>
+    </div>
+  </div>
+  <hr class="text-muted my-3 border-2 px-5">
+  <div class="col-lg-4 col-12">
+    <div class="row">
+      <div class="col-lg-8"><h3>product sold</h3>
+      <h5 class="text-muted">product in sold</h5>
+      </div>
+      <div class="col-lg-4 my-3"><h3 class="text-info">1024</h3></div>
+    </div>
+  </div> <div class="col-lg-4 col-12">
+    <div class="row">
+      <div class="col-lg-8"><h3>followers</h3>
+      <h5 class="text-muted">total in mounth</h5>
+      </div>
+      <div class="col-lg-4 my-3"><h3 class="text-danger">100K</h3></div>
+    </div>
+  </div> <div class="col-lg-4 col-12">
+    <div class="row">
+      <div class="col-lg-8"><h3>followers</h3>
+      <h5 class="text-muted">total folorwers in </h5>
+      </div>
+      <div class="col-lg-4 my-3"><h3 class="text-primary">100K</h3></div>
+    </div>
+  </div>
+</div>
+<div class="row footer py-3">
+  <div class="col-lg-4 col-12"><button class="border-0 mx-3"><img  class="footer-image" src="./images/world.png" alt=""></button><button class="border-0 mx-3"><img  class="footer-image" src="./images/setting.png" alt=""></button><button class="border-0 mx-3"><img  class="footer-image" src="./images/lifesaver.png" alt=""></button></div>
+
+  <div class="col-lg-2"></div>
+  <div class="col-lg-2"></div>
+  <div class="col-lg-2"></div>
+  <div class="col-lg-2"></div>
+</div>
+</div>
+
+
+
+  
+ 
+  <script src="./js/script.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.dataTables.min.js"></script>
+    <script src="./js/dataTables.bootstrap5.min.js"></script>
+
+
+
+    <script src="./js/core.js"></script>
+    <script src="./js/charts.js"></script>
+    <script src="./js/animated.js"></script>
+    <script src="./js/dark.js"></script>
+    <script src="./column-chart-with-axis-break/index.js"></script>
+
+
+
+</body>
+
+</html>
